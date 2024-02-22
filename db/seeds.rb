@@ -7,3 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Movie.destroy_all
+10.times do
+  movie = Movie.create(
+    title: Faker::Book.title,
+    overview: Faker::Movies::HarryPotter.quote,
+    poster_url: Faker::Movies::HarryPotter.spell,
+    rating: Faker::Number.between(from: 1, to: 10)
+  )
+  movie.save!
+end
